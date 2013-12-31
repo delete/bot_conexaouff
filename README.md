@@ -1,9 +1,9 @@
 ```python
-	_____        _   
-    | __ )  ___ | |_ 
+	_____        _
+    | __ )  ___ | |_
     |  _ \ / _ \| __|
-    | |_) | (_) | |_ 
-    |____/ \___/ \__| ConexaoUff    
+    | |_) | (_) | |_
+    |____/ \___/ \__| ConexaoUff
 ```
 
 Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da Universidade Federal Fluminense.
@@ -13,7 +13,7 @@ Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da
 
 * Retorna a lista de disciplina que o aluno está matriculado.
 
-* Faz o download de todos os arquivos postados pelos professores, de todas as disciplinas nmatriculadas.
+* Faz o download de todos os arquivos postados pelos professores, de todas as disciplinas matriculadas.
 
 # Dependências #
 
