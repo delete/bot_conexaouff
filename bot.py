@@ -26,7 +26,7 @@ if __name__ == '__main__':
 	p.get_arquivos()
     except mechanize.HTTPError, e:
         if e.code == 500:
-            print u'Parece que o site está fora do ar, tente mais tarde.'
+            print u'[-]Parece que o site está fora do ar, tente mais tarde.'
         else:
             raise e
         
