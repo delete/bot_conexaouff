@@ -1,5 +1,7 @@
+# coding: utf-8
 from classes import ConexaoUff
 import os
+import mechanize
 
 def header():
     try:
@@ -19,5 +21,12 @@ def header():
 
 if __name__ == '__main__':
     header()
-    p = ConexaoUff()        
-    p.get_arquivos()
+    p = ConexaoUff()
+    try:  
+	p.get_arquivos()
+    except mechanize.HTTPError, e:
+        if e.code == 500:
+            print u'Parece que o site está fora do ar, tente mais tarde.'
+        else:
+            raise e
+        
