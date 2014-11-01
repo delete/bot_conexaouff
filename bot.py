@@ -22,11 +22,13 @@ def header():
 if __name__ == '__main__':
     header()
     p = ConexaoUff()
+    
     try:  
-	p.get_arquivos()
+    p.baixarArquivos()
     except mechanize.HTTPError, e:
         if e.code == 500:
             print u'[-]Parece que o site está fora do ar, tente mais tarde.'
         else:
             raise e
         
+    p.close()
