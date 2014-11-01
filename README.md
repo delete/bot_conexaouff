@@ -11,8 +11,6 @@ Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da
 
 # Features #
 
-* Retorna a lista de disciplina que o aluno está matriculado.
-
 * Faz o download de todos os arquivos postados pelos professores, de todas as disciplinas matriculadas.
 
 # Dependências #
@@ -33,6 +31,6 @@ Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da
 
 <code>pip install -r requirements.txt</code>
 
-<code>python bot.py</code>
+<code>python2 bot.py</code>
 
 OBS: Coloque seus dados no arquivo **auth**, para que o login seja feito.
