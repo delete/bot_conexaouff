@@ -30,6 +30,17 @@ class Navegador(object):
                                 U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615\
                                 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
 
+    def login(self):
+        self.__getAuth()
+        try:
+            self.__browser.select_form(nr=0)
+            self.__browser.form['iduff'] = self.__username
+            self.__browser.form['senha'] = self.__password
+
+            self.__browser.submit()
+        except mechanize.BrowserStateError, e:
+            raise e
+
     def __getAuth(self):
         try:
             with open(self.__loginFileName) as file:
@@ -55,16 +66,6 @@ class Navegador(object):
             content = None
         return content
 
-    def login(self):
-        self.__getAuth()
-        try:
-            self.__browser.select_form(nr=0)
-            self.__browser.form['iduff'] = self.__username
-            self.__browser.form['senha'] = self.__password
-
-            self.__browser.submit()
-        except mechanize.BrowserStateError, e:
-            raise e
 
     def exit(self):
         self.__browser.clear_history()
