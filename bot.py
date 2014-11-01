@@ -24,7 +24,7 @@ if __name__ == '__main__':
     p = ConexaoUff()
     
     try:  
-    p.baixarArquivos()
+        p.baixarArquivos()
     except mechanize.HTTPError, e:
         if e.code == 500:
             print u'[-]Parece que o site está fora do ar, tente mais tarde.'
