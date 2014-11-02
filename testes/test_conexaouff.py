@@ -26,4 +26,3 @@ class ConexaoUffTest(unittest.TestCase):
 		arquivos = self.con.getArquivosDeCadaGrupo()
 		self.assertEqual(len(arquivos), 14)
 		self.assertIsInstance(arquivos[0], Arquivo)
-	
