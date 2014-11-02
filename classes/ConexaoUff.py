@@ -44,12 +44,12 @@ class ConexaoUff(object):
             file.write(conteudo)
 
     def getArquivosDeCadaGrupo(self):      
-        self.getDisciplinas()         
+        self.getDisciplinas()
         
         for disciplina in self.disciplinas:
             self.__navegador.setUrl(self.DEFAULT_URL + '/grupos/%s/arquivos' % (disciplina.codigo))
             
-            conteudo = self.__navegador.getContent()                    
+            conteudo = self.__navegador.getContent()
             links = self.__getLinks(conteudo)
 
             for link in links:
@@ -64,7 +64,6 @@ class ConexaoUff(object):
         html_com_todos_os_links = html_ul.find_all('a')
         return html_com_todos_os_links
 
-
     def __criaObjtArquivo(self, link, disciplina):
         title =  link['title']
         url =  link['href']
@@ -74,26 +73,30 @@ class ConexaoUff(object):
     def getDisciplinas(self):
         self.__navegador.setUrl(self.DEFAULT_URL)
         
-        conteudo = self.__navegador.getContent()        
+        conteudo = self.__navegador.getContent()
         
-        html_lis = self.__getDisciplinasAsLiHtml(conteudo)
+        html_lis = self.__getDisciplinas(conteudo)
+        
         if html_lis:
             for li in html_lis:
                 disciplina = self.__criaObjtDisciplina(li)
                 
-                self.disciplinas.append(disciplina)        
+                self.disciplinas.append(disciplina)
                     
         return self.disciplinas
 
+    def __getDisciplinas(self, conteudo):
+        try:        
+            html_lis = self.__getDisciplinasAsLiHtml(conteudo)
+            return html_lis
+        except AttributeError:
+            print 'Erro de conexão com o site, por favor, tente novamente.'
+
     def __getDisciplinasAsLiHtml(self, conteudo):
         soup = BeautifulSoup(conteudo)
-        try:
-            html_ul = soup.find('ul', id='grupos')
-            html_lis = html_ul.find_all('li')
-            return html_lis
-        
-        except AttributeError:
-            print 'Erro de conexão, por favor, tente novamente.'
+        html_ul = soup.find('ul', id='grupos')
+        html_lis = html_ul.find_all('li')
+        return html_lis
     
     def __criaObjtDisciplina(self, li):
         url = li.find('a').get('href')

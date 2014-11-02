@@ -25,7 +25,7 @@ class NavegadorSuccessTest(unittest.TestCase):
 	def test_page_content(self):
 		self.assertIn('Bem vindo ao Portal IDUFF', self.browser.getContent())		
 	
-	@unittest.skip('This test is slow...')
+	#@unittest.skip('This test is slow...')
 	def test_login(self):		
 		self.browser.login()
 		self.assertIn('Meus Grupos', self.browser.getContent())
@@ -70,7 +70,7 @@ class NavegadorErrorTest(unittest.TestCase):
   		os.remove('testFile')
   		self.browser.exit()
 
-  	@unittest.skip('This test is slow...')
+  	#@unittest.skip('This test is slow...')
 	def test_invalid_login(self):
 		self.browser.login()
 		self.assertIn('CPF ou senha inválido. Por favor, tente novamente.', self.browser.getContent())
