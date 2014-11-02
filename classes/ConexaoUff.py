@@ -32,8 +32,10 @@ class ConexaoUff(object):
 
             if not os.path.exists(file_path):
                 self.__baixa_e_salva_arquivo(file_path)
+                
                 print '[+] %s -> %s' % (arquivo.titulo, arquivo.disciplina.nome)
                 quantidade += 1
+
         print '\n[!] Foram baixados %d arquivos!' %(quantidade)
 
     def __baixa_e_salva_arquivo(self,file_path):
@@ -41,30 +43,35 @@ class ConexaoUff(object):
             conteudo = self.__navegador.getContent()
             file.write(conteudo)
 
-    def getArquivosDeCadaGrupo(self):
-      
+    def getArquivosDeCadaGrupo(self):      
         self.getDisciplinas()         
         
         for disciplina in self.disciplinas:
             self.__navegador.setUrl(self.DEFAULT_URL + '/grupos/%s/arquivos' % (disciplina.codigo))
-            conteudo = self.__navegador.getContent()
             
-            soup = BeautifulSoup(conteudo)
-            html_ul = soup.find('ul', id='enviados_por_moderador')
-            html_com_todos_os_links = html_ul.find_all('a')
+            conteudo = self.__navegador.getContent()                    
+            links = self.__getLinks(conteudo)
 
-            for link in html_com_todos_os_links:
-                title =  link['title']
-                url =  link['href']
-                d = disciplina
-                arquivo = Arquivo(titulo=title, url=url, disciplina=d)
-
+            for link in links:
+                arquivo = self.__criaObjtArquivo(link, disciplina)
                 self.arquivos.append(arquivo)
 
         return self.arquivos
 
-    def getDisciplinas(self):
+    def __getLinks(self, conteudo):
+        soup = BeautifulSoup(conteudo)
+        html_ul = soup.find('ul', id='enviados_por_moderador')
+        html_com_todos_os_links = html_ul.find_all('a')
+        return html_com_todos_os_links
 
+
+    def __criaObjtArquivo(self, link, disciplina):
+        title =  link['title']
+        url =  link['href']
+        d = disciplina
+        return Arquivo(titulo=title, url=url, disciplina=d)
+
+    def getDisciplinas(self):
         self.__navegador.setUrl(self.DEFAULT_URL)
         
         conteudo = self.__navegador.getContent()        
@@ -72,10 +79,7 @@ class ConexaoUff(object):
         html_lis = self.__getDisciplinasAsLiHtml(conteudo)
         if html_lis:
             for li in html_lis:
-                url = li.find('a').get('href')
-                codigo = url[url.find('s/')+2:]
-                nome = li.find('a').get('title')
-                disciplina = Disciplina(nome=nome, codigo=codigo, url=url)
+                disciplina = self.__criaObjtDisciplina(li)
                 
                 self.disciplinas.append(disciplina)        
                     
@@ -90,6 +94,12 @@ class ConexaoUff(object):
         
         except AttributeError:
             print 'Erro de conexão, por favor, tente novamente.'
+    
+    def __criaObjtDisciplina(self, li):
+        url = li.find('a').get('href')
+        codigo = url[url.find('s/')+2:]
+        nome = li.find('a').get('title')
+        return Disciplina(nome=nome, codigo=codigo, url=url)
 
     def close(self):
         self.__navegador.exit()
