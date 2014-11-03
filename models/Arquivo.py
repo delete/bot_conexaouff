@@ -8,4 +8,4 @@ class Arquivo():
 		self.disciplina = disciplina
 
 	def __str__(self):
-		return '%s' %(titulo)
+		return '%s' %(self.titulo)
