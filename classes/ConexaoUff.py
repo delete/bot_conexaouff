@@ -3,6 +3,7 @@ import os
 from bs4 import BeautifulSoup
 from Navegador import Navegador
 from GerarArquivos import GerarArquivos
+from GerarDisciplinas import GerarDisciplinas
 from models.Disciplina import Disciplina
 from models.Arquivo import Arquivo
 
@@ -37,7 +38,8 @@ class ConexaoUff(object):
                 print '[+] %s -> %s' % (arquivo.titulo, arquivo.disciplina.nome)
                 quantidade += 1
 
-        print '\n[!] Foram baixados %d arquivos!' %(quantidade)
+        if self.arquivos:
+            print '\n[!] Foram baixados %d arquivos!' %(quantidade)
 
     def __baixa_e_salva_arquivo(self,file_path):
         with open(file_path, 'w') as file:
@@ -60,35 +62,10 @@ class ConexaoUff(object):
         self.__navegador.setUrl(self.DEFAULT_URL)
         
         conteudo = self.__navegador.getContent()
-        
-        html_lis = self.__getDisciplinas(conteudo)
-        
-        if html_lis:
-            for li in html_lis:
-                disciplina = self.__criaObjtDisciplina(li)
                 
-                self.disciplinas.append(disciplina)
+        self.disciplinas = GerarDisciplinas.gerar(conteudo)        
                     
         return self.disciplinas
-
-    def __getDisciplinas(self, conteudo):
-        try:        
-            html_lis = self.__getDisciplinasAsLiHtml(conteudo)
-            return html_lis
-        except AttributeError:
-            print 'Erro de conexão com o site, por favor, tente novamente.'
-
-    def __getDisciplinasAsLiHtml(self, conteudo):
-        soup = BeautifulSoup(conteudo)
-        html_ul = soup.find('ul', id='grupos')
-        html_lis = html_ul.find_all('li')
-        return html_lis
-    
-    def __criaObjtDisciplina(self, li):
-        url = li.find('a').get('href')
-        codigo = url[url.find('s/')+2:]
-        nome = li.find('a').get('title')
-        return Disciplina(nome=nome, codigo=codigo, url=url)
 
     def close(self):
         self.__navegador.exit()

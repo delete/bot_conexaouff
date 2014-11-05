@@ -1,3 +1,4 @@
+# coding: utf-8
 from bs4 import BeautifulSoup
 from models.Arquivo import Arquivo
 
@@ -11,10 +12,10 @@ class GerarArquivos(object):
 		li_tags = GerarArquivos.__getLiTags(ul_tag)
 
 		files = []
-
-		for li in li_tags:
-			file = GerarArquivos.__createFileObj(li, disciplina)
-			files.append(file)
+		if li_tags:
+			for li in li_tags:
+				file = GerarArquivos.__createFileObj(li, disciplina)
+				files.append(file)
 
 		return files
 
@@ -25,7 +26,10 @@ class GerarArquivos(object):
 	
 	@staticmethod
 	def __getLiTags(ul_tag):
-		return ul_tag.find_all('a')
+		try:
+			return ul_tag.find_all('a')
+		except AttributeError:
+			print 'Erro de conexão com o site, por favor, tente novamente.'
 
 	@staticmethod
 	def __createFileObj(link, disciplina):
