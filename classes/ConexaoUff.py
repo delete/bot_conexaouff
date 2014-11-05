@@ -2,6 +2,7 @@
 import os
 from bs4 import BeautifulSoup
 from Navegador import Navegador
+from GerarArquivos import GerarArquivos
 from models.Disciplina import Disciplina
 from models.Arquivo import Arquivo
 
@@ -50,25 +51,10 @@ class ConexaoUff(object):
             self.__navegador.setUrl(self.DEFAULT_URL + '/grupos/%s/arquivos' % (disciplina.codigo))
             
             conteudo = self.__navegador.getContent()
-            links = self.__getLinks(conteudo)
-
-            for link in links:
-                arquivo = self.__criaObjtArquivo(link, disciplina)
-                self.arquivos.append(arquivo)
+            
+            self.arquivos = GerarArquivos.gerar(disciplina, conteudo)
 
         return self.arquivos
-
-    def __getLinks(self, conteudo):
-        soup = BeautifulSoup(conteudo)
-        html_ul = soup.find('ul', id='enviados_por_moderador')
-        html_com_todos_os_links = html_ul.find_all('a')
-        return html_com_todos_os_links
-
-    def __criaObjtArquivo(self, link, disciplina):
-        title =  link['title']
-        url =  link['href']
-        d = disciplina
-        return Arquivo(titulo=title, url=url, disciplina=d)
 
     def getDisciplinas(self):
         self.__navegador.setUrl(self.DEFAULT_URL)
