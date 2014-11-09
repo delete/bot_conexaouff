@@ -66,7 +66,6 @@ class Navegador(object):
             content = None
         return content
 
-
     def exit(self):
         self.__browser.clear_history()
         self.__browser.close()
