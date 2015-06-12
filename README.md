@@ -1,4 +1,5 @@
-```python
+# ConexãoUFF - Crawler
+```
 	_____        _
     | __ )  ___ | |_
     |  _ \ / _ \| __|
@@ -8,12 +9,14 @@
 
 Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da Universidade Federal Fluminense.
 
+#### **Bot desatualizado; o layout do site foi trocado.**
 
-# Features #
+
+## Features
 
 * Faz o download de todos os arquivos postados pelos professores, de todas as disciplinas matriculadas.
 
-# Dependências #
+## Dependências
 
 
 * Mechanize
@@ -22,7 +25,7 @@ Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da
 
 * BeautifulSoup4
 
-# Usando #
+## Usando
 
 
 <code>git clone https://github.com/delete/bot-conexaouff.git</code>
