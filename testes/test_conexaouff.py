@@ -19,10 +19,5 @@ class ConexaoUffTest(unittest.TestCase):
 
 	def test_get_disciplinas(self):
 		disciplinas = self.con.getDisciplinas()
-		self.assertEqual(len(disciplinas), 4)
+		self.assertEqual(len(disciplinas), 3)
 		self.assertIsInstance(disciplinas[0], Disciplina)
-
-	def test_get_arquivos(self):
-		arquivos = self.con.getArquivosDeCadaGrupo()
-		self.assertEqual(len(arquivos), 14)
-		self.assertIsInstance(arquivos[0], Arquivo)

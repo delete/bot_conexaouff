@@ -9,7 +9,7 @@ class GerarDisciplinasSuccessTest(unittest.TestCase):
 
 	def test_disciplinas_amount(self):
 		disciplinas = GerarDisciplinas.gerar(open(self.testFile).read())
-		self.assertEqual(len(disciplinas), 4)
+		self.assertEqual(len(disciplinas), 3)
 
 
 class GerarDisciplinasErrorTest(unittest.TestCase):
@@ -18,5 +18,6 @@ class GerarDisciplinasErrorTest(unittest.TestCase):
 		self.testFile = 'testes/groupTest.html'
 
 	def test_disciplinas_amount(self):
-		disciplinas = GerarDisciplinas.gerar(open(self.testFile).read())
-		self.assertEqual(len(disciplinas), 0)
+		with self.assertRaises(AttributeError):
+			disciplinas = GerarDisciplinas.gerar(open(self.testFile).read())
+			self.assertEqual(len(disciplinas), 0)

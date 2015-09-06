@@ -19,7 +19,6 @@ class ConexaoUff(object):
         self.arquivos = list()
 
     def baixarArquivos(self):
-        quantidade = 0
         self.getArquivosDeCadaGrupo()
 
         BaixarArquivos.baixar(self.arquivos, self.__navegador)

@@ -1,205 +1,369 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xml:lang="pt-BR"
-      xmlns:og="http://ogp.me/ns#">
+<!DOCTYPE html>
+<html lang="en"><!--<![endif]-->
 <head>
-  <title>Conexão UFF</title>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
-  <meta property="og:site_name" content="Conexão UFF"/>
-  <meta property="og:image" content="https://sistemas.uff.br/conexaouff/images/logo.png"/>
-  <meta property="og:type" content="university" />
-  
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"/>
+  <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="8i11bCk8BydEud2CfE5VZZaHvAF4TsEU63ryRkdmu5jJ3ZgXCjuTCzEttFaXEuFbqoNLcwcISiJt0Gs8QIvLVA==" />
+  <script src="/conexaouff/assets/application.js"></script>
+  <script src="/conexaouff/assets/rails.js"></script>
+  <link rel="stylesheet" media="screen" href="/conexaouff/assets/token-input-facebook.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/open_sans.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/animate.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/bootstrap.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/style.min.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/style-responsive.min.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/datepicker.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/datepicker3.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/main.css" />
+<link rel="stylesheet" media="screen" href="/conexaouff/assets/xlayout-fix.css" />
+  <script src="/conexaouff/assets/jquery.tokeninput.js"></script>
+  <style type="text/css">.jqstooltip {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      visibility: hidden;
+      background: rgb(0, 0, 0) transparent;
+      background-color: rgba(0, 0, 0, 0.6);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = #99000000, endColorstr = #99000000);
+      -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+      color: white;
+      font: 10px arial, san serif;
+      text-align: left;
+      white-space: nowrap;
+      padding: 5px;
+      border: 1px solid white;
+      z-index: 10000;
+  }
 
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <script src="/conexaouff/javascripts/jquery.js?1413297029" type="text/javascript"></script>
-<script src="/conexaouff/javascripts/jquery_ujs.js" type="text/javascript"></script>
-<script src="/conexaouff/javascripts/jquery.min.js?1413297029" type="text/javascript"></script>
-<script src="/conexaouff/javascripts/application.js?1413297029" type="text/javascript"></script>
-  <script src="/conexaouff/javascripts/jquery.notifications-1.1.js?1413297029" type="text/javascript"></script>
-  <script src="/conexaouff/javascripts/jquery.jqEasyCharCounter.js?1413297029" type="text/javascript"></script>
-  <script src="/conexaouff/javascripts/best_in_place.js?1413297029" type="text/javascript"></script>
-  <script src="/conexaouff/javascripts/facebox.js?1413297029" type="text/javascript"></script>
-  <script src="/conexaouff/javascripts/jquery.autocomplete.js?1413297029" type="text/javascript"></script>
-  <link href="/conexaouff/stylesheets/main.css?1413297029" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/conexaouff/stylesheets/facebox.css?1413297029" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/conexaouff/stylesheets/jquery.autocomplete.css?1413297029" media="screen" rel="stylesheet" type="text/css" />
-      <link href="/conexaouff/stylesheets/original.css?1413297029" id="tema" media="screen" rel="stylesheet" type="text/css" />
-  <meta content="authenticity_token" name="csrf-param" />
-<meta content="QuVF5krpfZvPvfcrzZj60LzKKzy67Jjvos1n97Jyt34=" name="csrf-token" />
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-15140884-12']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-  </script>
+  .jqsfield {
+      color: white;
+      font: 10px arial, san serif;
+      text-align: left;
+  }</style>
 </head>
 <body>
-<div id="barra_aplicacoes" style="font-size:13px; padding-bottom: 5px; margin-bottom: 5px; border-bottom: 1px solid #ccc">
-  <img src="http://sistemas.uff.br/portal/images/uff.png" alt="UFF" style="float: left" />
-  <a href="https://sistemas.uff.br/portal" style="margin-left: 10px">Portal</a>
-  <a href="https://sistemas.uff.br/iduff" style="margin-left: 10px">Sistema Acadêmico (idUFF)</a>
-  <a href="https://sistemas.uff.br/quadro-de-horarios" style="margin-left: 10px">Quadro de Horários</a>
-  <a href="https://sistemas.uff.br/inscricao" style="margin-left: 10px">Inscrição (Coordenador)</a>
-  <a href="http://portal.uff.br/portalnti" style="margin-left: 10px">SIAD</a>
-  <a href="https://sistemas.uff.br/ConsultaPublica" style="margin-left: 10px">Consulta Pública</a>
-  <a href="https://sistemas.uff.br/cppd" style="margin-left: 10px">CPPD</a>
-  <a href="https://sistemas.uff.br/rad" style="margin-left: 10px">RAD</a>
-  <a href="https://sistemas.uff.br/monitoria" style="margin-left: 10px">Monitoria</a>
-  <a href="http://mail.id.uff.br" style="margin-left: 10px">UFFMail</a>
-  <span style="float:right; margin-right: 20px">
-    <a href="https://sistemas.uff.br/portal/ws/autenticacoes/logout">Sair</a>
-  </span>
-</div>
-<div id="topsection">
-  <div class="topinner">
-    <h1><a href="/conexaouff/"><img alt="Logo" src="/conexaouff/images/logo.png?1413297029" /></a></h1>
-        <span class="welcome">Olá, Fellipe Pinheiro(IdUFF:)</span>
-        <p>
-      <ul id="mymenu" class="shadow">
-    <li ><a href="/conexaouff/home/mensagens" title="Veja suas mensagens recebidas">Mensagens(0)</a></li>
-    <li ><a href="/conexaouff/usuarios" title="Pesquisa de usuários">Usuários</a></li>
-    <li ><a href="/conexaouff/grupos" title="Pesquisa de grupos">Grupos</a></li>
-    <li ><a href="/conexaouff/usuarios/34028/relacionamentos" title="Veja seus amigos">Amigos(45)</a></li>
-    <li ><a href="/conexaouff/home" title="Veja seu perfil">Perfil</a></li>
+<div id="page-container" class="fade in">
+  <div id="header" class="header navbar navbar-default navbar-fixed-top">
+  <div id="barra-brasil">
+  <ul id="menu-barra-temp" style="list-style:none;">
+    <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED"><a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a></li>
+    <li><a style="font-family:sans,sans-serif; text-decoration:none; color:white;" href="http://epwg.governoeletronico.gov.br/barra/atualize.html">Atualize sua Barra de Governo</a></li>
   </ul>
+</div>
+  <div style="border-bottom: 1px solid #ccc; background-color:#FFFFFF;background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#FFFFFF),color-stop(50%,#F0F0F0),color-stop(51%,#E6E6E6),color-stop(100%,#F0F0F0));">
+  <img src="http://sistemas.uff.br/portal/images/uff.png" alt="UFF" style="float: left" />
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/portal">Portal</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/iduff">Sistema Acadêmico (idUFF)</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/quadro-de-horarios">Quadro de Horários</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/inscricao">Inscrição (Coordenador)</a>
+  <a style="margin-left: 10px" href="http://portal.uff.br/portalnti">SIAD</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/ConsultaPublica">Consulta Pública</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/cppd">CPPD</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/rad">RAD</a>
+  <a style="margin-left: 10px" href="https://sistemas.uff.br/monitoria">Monitoria</a>
+  <a style="margin-left: 10px" href="http://mail.id.uff.br">UFFMail</a>
+</div>
 
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/conexaouff/">Conexão UFF</a>
+      <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+          <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+            <i class="fa fa-bell-o"></i>
+          </a>
+          <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+              <li class="dropdown-header">Nenhum convite</li>
+          </ul>
+        </li>
+
+        <li class="dropdown navbar-user">
+          <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+            <img src="https://sistemas.uff.br/static/identificacoes/oficial/e089801433fbed9a71e18947471fefeea9d58763.JPG" alt="" onError="this.onerror=null;this.src='/assets/user.jpg';"/>
+            <span class="hidden-xs">Fellipe Pinheiro</span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu animated">
+            <li class="arrow"></li>
+            <li><a href="/conexaouff/usuarios/34028/edit">Editar Perfil</a></li>
+            <li><a href="https://sistemas.uff.br/portal/identificacao/foto/new">Alterar Foto</a></li>
+            <li class="divider"></li>
+            <li><a href="https://sistemas.uff.br/portal/ws/autenticacoes/logout">Sair</a></li>
+          </ul>
+        </li>
+      </ul>
   </div>
 </div>
-<div id="maincontainer">
-  <div id="contentwrapper">
-    <div id="contentcolumn">
-      <div class="innertube">
-        <div id="group">
-  <h1 class="title">Calculo III - R1</h1>
-  <h3 class="title">Arquivos:</h3>
-  <h3>Enviados pelos moderadores:</h3>
-<ul id="enviados_por_moderador" class="imglist">
-      <li><a href="/conexaouff/grupos/68207/arquivos/31166" title="teste"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>teste</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31168" title="outro teste"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>outro teste</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31173" title="novo teste"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>novo teste</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31175" title="função de várias variáveis diferenciabilidade"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis diferenciabilidade</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31176" title="função de várias variáveis definição domínio e imagem"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis definição domínio e imagem</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31178" title="função de várias variáveis conjunto de nível"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis conjunto de nível</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31182" title="função de várias variáveis domínio e imagem"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis domínio e imagem</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31187" title="função de várias variáveis exercício"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis exercício</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/31188" title="função de várias variáveis limite e continuidade"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>função de várias variáveis limite e continuidade</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/32279" title="diferenciável aplicação"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>diferenciável aplicação</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/32280" title="arte de derivar"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>arte de derivar</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/32636" title="aplicações diferenciabilidade"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>aplicações diferenciabilidade</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/32637" title="arte de derivar"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>arte de derivar</div>
-            </div></a></li>
-      <li><a href="/conexaouff/grupos/68207/arquivos/32638" title="arte de derivar 1"><div class='file_box'>
-              <div class='picture'><img alt="Report" src="/conexaouff/images/report.png?1413297029" /></div>
-              <div class='description'>arte de derivar 1</div>
-            </div></a></li>
-</ul>
-<br clear="all"/>
-<h3>Enviados pelos usuários:</h3>
-<h4>Aprovados pelo moderador</h4>
-<ul id="aprovados_pelo_moderador" class="imglist">
-    <span>Ainda não há arquivos aprovados pelos moderadores</span>
-</ul>
-<br clear="all"/>
-<h4>Aguardando aprovação (0)</h4>
-
-  <ul id="nao_aprovados_pelo_moderador" class="imglist">
-  </ul>
-  <br />
-  <br clear="all"/>
-    <a href="/conexaouff/grupos/68207/arquivos/new" class="add" title="Adicionar arquivo">Adicionar arquivo</a>
-  <a href="/conexaouff/grupos/68207" class="back" title="Voltar para o grupo">Voltar para o grupo</a>
+  <div class="">
+    <div id="sidebar" class="sidebar">
+  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
+    <div data-scrollbar="true" data-height="100%" style="overflow: hidden; width: auto; height: 100%;">
+      <ul class="nav">
+        <li class="nav-profile" style="margin-top: 18px;">
+          <div class="image">
+            <a href="/conexaouff/usuarios/34028"><img src="https://sistemas.uff.br/static/identificacoes/oficial/e089801433fbed9a71e18947471fefeea9d58763.JPG" alt=""></a>
+          </div>
+          <div class="info">
+            <a style="color:white" href="/conexaouff/usuarios/34028">Fellipe Pinheiro</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li id="home">
+          <a href="/conexaouff/home"><i class="fa fa-home"></i> <span>Home</span></a>
+        </li>
+        <li id="perfil">
+          <a href="/conexaouff/usuarios/34028"><i class="fa fa-user"></i> <span>Perfil</span></a>
+        </li>
+        <li id="mensagens">
+          <a href="/conexaouff/home/mensagens">
+            <span class="badge pull-right" id="mensagens-nao-lidas"></span>
+            <i class="fa fa-envelope"></i> <span>Mensagens</span>
+          </a>
+        </li>
+        <li id="amigos">
+          <a href="/conexaouff/usuarios/34028/relacionamentos">
+            <i class="fa fa-star"></i>
+            <span class="badge pull-right">44</span>
+            <span>Amigos</span>
+          </a>
+        </li>
+        <li id="grupos">
+          <a href="/conexaouff/grupos">
+            <i class="fa fa-archive"></i>
+            <span>Grupos</span>
+          </a>
+        </li>
+        <li id="usuarios">
+          <a href="/conexaouff/usuarios">
+            <i class="fa fa-users"></i>
+            <span>Usuários</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="slimScrollBar ui-draggable" style="background-color: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; z-index: 99; right: 1px; height: 914px; background-position: initial initial; background-repeat: initial initial;"></div>
+    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-top-left-radius: 7px; border-top-right-radius: 7px; border-bottom-right-radius: 7px; border-bottom-left-radius: 7px; background-color: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px; background-position: initial initial; background-repeat: initial initial;"></div>
+  </div>
 </div>
+
+    <div id="content" class="content">
+      <h1 class="title">Interface Humano-Computador - C1</h1>
+
+<div class="row">
+  <div class="col-md-6 ui-sortable">
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+          <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+          <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
+          <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+        </div>
+        <h4 class="panel-title">Arquivos</h4>
+      </div>
+      <div class="panel-body">
+
+
+        <h4>Enviados pelos moderadores:</h4>
+    <table class="table table-hover">
+      <tbody>
+
+          <tr>
+            <td><a title="Usabilidade X Acessibilidade" href="/conexaouff/grupos/77482/arquivos/38299"><div class='description'>Usabilidade X Acessibilidade 
+(1,6MB)</div></a></td>
+            <td>30/04/2015 04:07PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Analise de estimativas de esforco" href="/conexaouff/grupos/77482/arquivos/37474"><div class='description'>Analise de estimativas de esforco 
+(910KB)</div></a></td>
+            <td>15/04/2015 05:41PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Aula: Requisitos em IHC" href="/conexaouff/grupos/77482/arquivos/37365"><div class='description'>Aula: Requisitos em IHC 
+(2,6MB)</div></a></td>
+            <td>13/04/2015 11:28PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Identifying needs and establishing requirements" href="/conexaouff/grupos/77482/arquivos/37363"><div class='description'>Identifying needs and establishing requirements 
+(1,9MB)</div></a></td>
+            <td>13/04/2015 11:16PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="A HCI technique for improving requirements elicitation" href="/conexaouff/grupos/77482/arquivos/37336"><div class='description'>A HCI technique for improving requirements elicitation 
+(3,4MB)</div></a></td>
+            <td>13/04/2015 05:23PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Aula Métodos, Técnicas e Princípios Utilizados na Avaliação" href="/conexaouff/grupos/77482/arquivos/36990"><div class='description'>Aula Métodos, Técnicas e Princípios Utilizados na Avaliação 
+(520KB)</div></a></td>
+            <td>07/04/2015 03:38PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Leitura Obrigatoria" href="/conexaouff/grupos/77482/arquivos/36908"><div class='description'>Leitura Obrigatoria 
+(980KB)</div></a></td>
+            <td>06/04/2015 05:40PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art7_Trab2" href="/conexaouff/grupos/77482/arquivos/36907"><div class='description'>Art7_Trab2 
+(2,2MB)</div></a></td>
+            <td>06/04/2015 05:39PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art6_Trab2" href="/conexaouff/grupos/77482/arquivos/36905"><div class='description'>Art6_Trab2 
+(860KB)</div></a></td>
+            <td>06/04/2015 05:38PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art5_Trab2" href="/conexaouff/grupos/77482/arquivos/36904"><div class='description'>Art5_Trab2 
+(510KB)</div></a></td>
+            <td>06/04/2015 05:38PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art4_Trab2" href="/conexaouff/grupos/77482/arquivos/36903"><div class='description'>Art4_Trab2 
+(870KB)</div></a></td>
+            <td>06/04/2015 05:37PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art2a_Trab2" href="/conexaouff/grupos/77482/arquivos/36902"><div class='description'>Art2a_Trab2 
+(46KB)</div></a></td>
+            <td>07/04/2015 10:57AM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art2_Trab2" href="/conexaouff/grupos/77482/arquivos/36901"><div class='description'>Art2_Trab2 
+(2,3MB)</div></a></td>
+            <td>06/04/2015 05:36PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Art1_Trab2" href="/conexaouff/grupos/77482/arquivos/36900"><div class='description'>Art1_Trab2 
+(430KB)</div></a></td>
+            <td>06/04/2015 05:36PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Artigo5: The Evolution of Design Patterns in HCI" href="/conexaouff/grupos/77482/arquivos/35494"><div class='description'>Artigo5: The Evolution of Design Patterns in HCI 
+(590KB)</div></a></td>
+            <td>19/03/2015 03:48PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Artigo4: Pattern Languages in Interaction Design: Structure and Organization " href="/conexaouff/grupos/77482/arquivos/35441"><div class='description'>Artigo4: Pattern Languages in Interaction Design: Structure and Organization  
+(320KB)</div></a></td>
+            <td>19/03/2015 03:30PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Artigo3: Are Human-Computer Interaction Design Patterns really used? " href="/conexaouff/grupos/77482/arquivos/35438"><div class='description'>Artigo3: Are Human-Computer Interaction Design Patterns really used?  
+(520KB)</div></a></td>
+            <td>19/03/2015 03:28PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Artigo2: The Use of Anti - Patterns in Human Computer Interaction" href="/conexaouff/grupos/77482/arquivos/35433"><div class='description'>Artigo2: The Use of Anti - Patterns in Human Computer Interaction 
+(210KB)</div></a></td>
+            <td>19/03/2015 03:24PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Artigo1: Human-Computer Interaction Design Patterns" href="/conexaouff/grupos/77482/arquivos/35421"><div class='description'>Artigo1: Human-Computer Interaction Design Patterns 
+(530KB)</div></a></td>
+            <td>19/03/2015 03:24PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="aula: Padrões de Interação para Projetos WEB" href="/conexaouff/grupos/77482/arquivos/35399"><div class='description'>aula: Padrões de Interação para Projetos WEB 
+(2,5MB)</div></a></td>
+            <td>19/03/2015 03:25PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Monografia: Usabilidade e Ergonomia" href="/conexaouff/grupos/77482/arquivos/35388"><div class='description'>Monografia: Usabilidade e Ergonomia 
+(1,3MB)</div></a></td>
+            <td>19/03/2015 03:25PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="Aula: Engenharia de Usabilidade" href="/conexaouff/grupos/77482/arquivos/35387"><div class='description'>Aula: Engenharia de Usabilidade 
+(500KB)</div></a></td>
+            <td>19/03/2015 03:25PM</td>
+          </tr>
+
+          <tr>
+            <td><a title="aula: Gestalt" href="/conexaouff/grupos/77482/arquivos/35379"><div class='description'>aula: Gestalt 
+(1,4MB)</div></a></td>
+            <td>19/03/2015 03:26PM</td>
+          </tr>
+
+      </tbody>
+    </table>
+
+<h4>Enviados pelos usuários:</h4>
+    <span>Ainda não há arquivos aprovados pelos moderadores.</span>
+
+
+
+
+        <br/><br/>
+            <a title="Adicionar arquivo" class="btn btn-success btn-sm m-r-5" href="/conexaouff/grupos/77482/arquivos/new">Adicionar arquivo</a>
       </div>
     </div>
+    <a title="Voltar para o grupo" class="btn btn-info m-r-5 m-b-5" href="/conexaouff/grupos/77482">Voltar para o grupo</a>
   </div>
 </div>
-<div id="rightcolumn">
 
-
-
-  <div class="innertube">
-    
+    </div>
   </div>
+  <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
 </div>
-<div id="footer">
-  <p>
-    Em caso de dúvidas, entre em contato com a Central de Atendimento pelo e-mail atendimento@id.uff.br ou pelo telefone (21)2629-2042 - Opção 3.
-  </p>
-  <p>
-    Produzido pelo Núcleo de Tecnologia da Informação e Comunicação |
-    <a href="/conexaouff/politica_de_privacidade">Política de Privacidade</a>
-  </p>
-</div>
-<script type="text/javascript">
-    var uservoiceOptions = {
-        key: 'conexaouff',
-        host: 'conexaouff.uservoice.com',
-        forum: '100933',
-        alignment: 'left',
-        background_color: '#267dc9',
-        text_color: 'white',
-        hover_color: '#94bc2f',
-        lang: 'pt_BR',
-        showTab: true
-    };
-    function _loadUserVoice(){
-        var s = document.createElement('script');
-        s.src = ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js";
-        document.getElementsByTagName('head')[0].appendChild(s);
-    }
-
-    _loadSuper = window.onload;
-    window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function(){
-        _loadSuper();
-        _loadUserVoice();
-    };
+<script defer src="//barra.brasil.gov.br/barra.js" type="text/javascript"></script>
+<script defer>
+    $(document).ready(function () {
+        $("#barra-brasil").prependTo("#header");
+    });
 </script>
+    <script>
+        function atualizaBadges() {
+            var timeOutId = 0;
+            var usuarioAtualId = '34028';
+            $.ajax({
+                url:Routes.qtd_nao_lidas_usuario_mensagens_path(usuarioAtualId,{"format":"json"}),
+                success:function (response) {
+                    if (!(response == "undefined")) {
+                        //Atualiza mensagens nao lidas
+                        $("#mensagens-nao-lidas").text(response);
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            atualizaBadges();
+            setTimeout(atualizaBadges, 60000);
+            App.init();
+            Dashboard.init();
+        });
+
+    </script>
 </body>
 </html>
-

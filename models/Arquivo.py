@@ -9,3 +9,6 @@ class Arquivo():
 
 	def __str__(self):
 		return '%s' %(self.titulo)
+
+	def __repr__(self):
+		return '%s' %(self.titulo)

@@ -2,34 +2,38 @@
 from bs4 import BeautifulSoup
 from models.Arquivo import Arquivo
 
+from logger import log
 
 class GerarArquivos(object):
 
 	@staticmethod
 	def gerar(disciplina, pageContent):
-		ul_tag = GerarArquivos.__getUlTag(pageContent)
+		log(disciplina.nome)
+		
+		table = GerarArquivos.__getTable(pageContent)
 
-		li_tags = GerarArquivos.__getLiTags(ul_tag)
+		a_tags = GerarArquivos.__getATags(table)
 
 		files = []
-		if li_tags:
-			for li in li_tags:
-				file = GerarArquivos.__createFileObj(li, disciplina)
+		if a_tags:
+			for a in a_tags:
+				file = GerarArquivos.__createFileObj(a, disciplina)
 				files.append(file)
 
 		return files
 
 	@staticmethod
-	def __getUlTag(pageContent):
-		soup = BeautifulSoup(pageContent)
-		return soup.find('ul', id='enviados_por_moderador')
+	def __getTable(pageContent):
+		soup = BeautifulSoup(pageContent, 'html.parser')
+		return soup.find('table', class_='table table-hover')
 	
 	@staticmethod
-	def __getLiTags(ul_tag):
+	def __getATags(table):
 		try:
-			return ul_tag.find_all('a')
+			return table.find_all('a')
 		except AttributeError:
-			print 'Erro de conexão com o site, por favor, tente novamente.'
+			log('Class: GerarArquivos - Metodo: __getATags')
+			log('Erro de conexão com o site.\n')
 
 	@staticmethod
 	def __createFileObj(link, disciplina):

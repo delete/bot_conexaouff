@@ -29,7 +29,7 @@ class NavegadorSuccessTest(unittest.TestCase):
 	def test_login(self):		
 		self.browser.login()
 		self.assertIn('Meus Grupos', self.browser.getContent())
-		self.assertIn('Tópicos respondidos', self.browser.getContent())
+		self.assertIn('Olá, Fellipe Pinheiro.', self.browser.getContent())
 
 
 
