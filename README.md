@@ -9,12 +9,11 @@
 
 Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da Universidade Federal Fluminense.
 
-#### **Bot desatualizado; o layout do site foi trocado.**
-
 
 ## Features
 
 * Faz o download de todos os arquivos postados pelos professores, de todas as disciplinas matriculadas.
+![](http://i.imgur.com/ykePWcC.png)
 
 ## Dependências
 
