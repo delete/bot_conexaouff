@@ -20,8 +20,6 @@ Bot parar logar no sistema [ConexãoUFF](https://sistemas.uff.br/conexaouff), da
 
 * Mechanize
 
-* Cookielib
-
 * BeautifulSoup4
 
 ## Usando
